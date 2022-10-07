@@ -21,27 +21,27 @@ UNIT_PIXEL = 0.2
 UNIT_DIST = 1
 unit_vel = 5
 
-def init_light():
-    light_ambient = [0.4, 0.4, 0.4, 1]
-    light_diffuse = [0.7, 0.7, 0.7, 1]
-    light_specular = [0.9, 0.9, 0.9, 1]
-    light_pos = [0, 200, -100, 1]
+# def init_light():
+#     light_ambient = [0.4, 0.4, 0.4, 1]
+#     light_diffuse = [0.7, 0.7, 0.7, 1]
+#     light_specular = [0.9, 0.9, 0.9, 1]
+#     light_pos = [0, 200, -100, 1]
    
-    glEnable(GL_DEPTH_TEST)
-    glEnable(GL_LIGHTING)
+#     glEnable(GL_DEPTH_TEST)
+#     glEnable(GL_LIGHTING)
 
-    glShadeModel(GL_SMOOTH)
-    glEnable(GL_COLOR_MATERIAL)
-    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
-    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE)
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [0.1, 0.1, 0.1, 1])
+#     glShadeModel(GL_SMOOTH)
+#     glEnable(GL_COLOR_MATERIAL)
+#     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
+#     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE)
+#     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [0.1, 0.1, 0.1, 1])
 
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse)
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular)
-    glLightfv(GL_LIGHT0, GL_POSITION, light_pos)
+#     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
+#     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse)
+#     glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular)
+#     glLightfv(GL_LIGHT0, GL_POSITION, light_pos)
 
-    glEnable(GL_LIGHT0)
+#     glEnable(GL_LIGHT0)
 
 
 def init():
@@ -131,7 +131,7 @@ glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 glutCreateWindow("Football Field Simulator")
 
 init() 
-init_light()
+# init_light()
 
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
