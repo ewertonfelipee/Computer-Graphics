@@ -85,17 +85,17 @@ def draw_cube():
     glutSolidCube(UNIT_PIXEL * 1)
     glPopMatrix()
 
-def draw_goal1Dots():
+# def draw_goal1Dots():
     
-    glPushMatrix()
-    glColor4fv(colors["white"])
-    # glPointSize(5)
-    glBegin(GL_POINTS)
-    glVertex3f(10,0,-1)
-    glVertex3f(10,0,2)
-    glVertex3f(10, 1.5, -1)
-    glVertex3f(10, 1.5, 2)
-    glEnd()
+#     glPushMatrix()
+#     glColor4fv(colors["white"])
+#     # glPointSize(5)
+#     glBegin(GL_POINTS)
+#     glVertex3f(10,0,-1)
+#     glVertex3f(10,0,2)
+#     glVertex3f(10, 1.5, -1)
+#     glVertex3f(10, 1.5, 2)
+#     glEnd()
 
 def draw_goal1Lines():
     glPushMatrix()
@@ -110,20 +110,20 @@ def draw_goal1Lines():
     glEnd()
 
 def draw_goal1(pos):
-    draw_goal1Dots()
+    # draw_goal1Dots()
     draw_goal1Lines()
 
 
-def draw_goal2Dots():
+# def draw_goal2Dots():
     
-    glPushMatrix()
-    glColor4fv(colors["white"])
-    glBegin(GL_POINTS)
-    glVertex3f(-10,0,-1)
-    glVertex3f(-10,0,2)
-    glVertex3f(-10, 1.5, -1)
-    glVertex3f(-10, 1.5, 2)
-    glEnd()
+#     glPushMatrix()
+#     glColor4fv(colors["white"])
+#     glBegin(GL_POINTS)
+#     glVertex3f(-10,0,-1)
+#     glVertex3f(-10,0,2)
+#     glVertex3f(-10, 1.5, -1)
+#     glVertex3f(-10, 1.5, 2)
+#     glEnd()
 
 def draw_goal2Lines():
     glPushMatrix()
@@ -139,7 +139,7 @@ def draw_goal2Lines():
 
 
 def draw_goal2(pos):
-    draw_goal2Dots()
+    # draw_goal2Dots()
     draw_goal2Lines()
     
 
@@ -150,7 +150,7 @@ def display():
     glMatrixMode(GL_MODELVIEW)
 
     draw_cube()
-    draw_ball([0, 4, 0])
+    draw_ball([0, 0, 0])
     draw_goal1([105,4,35])
     draw_goal2([-105,4,35])
 
