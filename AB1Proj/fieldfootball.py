@@ -12,6 +12,11 @@ eye = [0, 0, 0]
 center = [0, 0, 0]
 up = [0, 1, 0] 
 
+tranx = 0
+trany = 0
+tranz = 0
+rota = 1
+
 colors ={
     "green": [0.1, 1., 0.1, 0.],
     "white": [0.9, 0.9, 0.9, 0.]
@@ -21,27 +26,27 @@ UNIT_PIXEL = 0.2
 UNIT_DIST = 1
 unit_vel = 5
 
-# def init_light():
-#     light_ambient = [0.4, 0.4, 0.4, 1]
-#     light_diffuse = [0.7, 0.7, 0.7, 1]
-#     light_specular = [0.9, 0.9, 0.9, 1]
-#     light_pos = [0, 200, -100, 1]
+def init_light():
+    light_ambient = [0.4, 0.4, 0.4, 1]
+    light_diffuse = [0.7, 0.7, 0.7, 1]
+    light_specular = [0.9, 0.9, 0.9, 1]
+    light_pos = [0, 200, -100, 1]
    
-#     glEnable(GL_DEPTH_TEST)
-#     glEnable(GL_LIGHTING)
+    glEnable(GL_DEPTH_TEST)
+    glEnable(GL_LIGHTING)
 
-#     glShadeModel(GL_SMOOTH)
-#     glEnable(GL_COLOR_MATERIAL)
-#     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
-#     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE)
-#     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [0.1, 0.1, 0.1, 1])
+    glShadeModel(GL_SMOOTH)
+    glEnable(GL_COLOR_MATERIAL)
+    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE)
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [0.1, 0.1, 0.1, 1])
 
-#     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
-#     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse)
-#     glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular)
-#     glLightfv(GL_LIGHT0, GL_POSITION, light_pos)
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse)
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular)
+    glLightfv(GL_LIGHT0, GL_POSITION, light_pos)
 
-#     glEnable(GL_LIGHT0)
+    glEnable(GL_LIGHT0)
 
 
 def init():
@@ -71,20 +76,6 @@ def move_camera():
     #glMatrixMode(GL_PROJECTION)
     #gluPerspective(45, WINDOW_WIDTH/WINDOW_HEIGHT, 0.1, 100.)
 
-def draw_ball(pos):
-    glPushMatrix()
-    glColor4fv(colors["white"])
-    glTranslatef(pos[0] * UNIT_PIXEL, pos[1] * UNIT_PIXEL, pos[2] * UNIT_PIXEL)
-    glutSolidSphere(UNIT_PIXEL * 1, SLICES*2, STACKS*2)
-    glPopMatrix()
-
-def draw_cube():
-    glPushMatrix()
-    glColor4fv(colors["green"])
-    glScalef(105, 2, 70)
-    glutSolidCube(UNIT_PIXEL * 1)
-    glPopMatrix()
-
 # def draw_goal1Dots():
     
 #     glPushMatrix()
@@ -108,6 +99,7 @@ def draw_goal1Lines():
     glVertex3f(10, 1.5, -1)
     glVertex3f(10, 1.5, 2)
     glEnd()
+    glPopMatrix()
 
 def draw_goal1(pos):
     # draw_goal1Dots()
@@ -136,11 +128,27 @@ def draw_goal2Lines():
     glVertex3f(-10, 1.5, -1)
     glVertex3f(-10, 1.5, 2)
     glEnd()
+    glPopMatrix()
 
 
 def draw_goal2(pos):
     # draw_goal2Dots()
     draw_goal2Lines()
+
+def draw_ball(pos):
+    glPushMatrix()
+    glColor4fv(colors["white"])
+    glTranslatef(tranx, 0, tranz)
+    glRotatef(rota, 0, rota, rota)
+    glutSolidSphere(UNIT_PIXEL * 1, SLICES*3, STACKS*3)
+    glPopMatrix()
+    
+def draw_cube():  
+    glPushMatrix()
+    glColor4fv(colors["green"])
+    glScalef(105, 2, 70)
+    glutSolidCube(UNIT_PIXEL * 1)
+    glPopMatrix()
     
 
 def display():
@@ -163,23 +171,54 @@ def keyboard_handler(key, x, y):
     global eye
     global center
     global up
-
+    global tranx
+    global trany
+    global tranz
+    global rota
+    
+    # move the camera
     if key == b"w":
         eye[2] += UNIT_DIST * UNIT_PIXEL * unit_vel
         center[2] += UNIT_DIST * UNIT_PIXEL * unit_vel
 
-        print(eye, center, up)
+        # print(eye, center, up)
     elif key == b"s":
         eye[2] -= UNIT_DIST * UNIT_PIXEL * unit_vel
         center[2] -= UNIT_DIST * UNIT_PIXEL * unit_vel
 
-    elif key == b"u":
-        up[0] = 1   
-
-
+    # elif key == b"u":
+    #     up[0] = 1   
     elif key == b"z":
         eye[2] -= UNIT_DIST * UNIT_PIXEL * unit_vel
+        
+    elif key == b"d":
+        eye[0] += UNIT_DIST * UNIT_PIXEL * unit_vel
+        center[0] += UNIT_DIST * UNIT_PIXEL * unit_vel
+            
+    elif key == b"a":
+        eye[0] -= UNIT_DIST * UNIT_PIXEL * unit_vel
+        center[0] -= UNIT_DIST * UNIT_PIXEL * unit_vel
 
+    # move the ball
+    elif key == b"l":
+        tranx+=1
+        rota+1
+    elif key == b"i":
+        tranz-=1
+        rota-1
+    elif key == b"j":
+        tranx-=1
+        rota-1
+    elif key == b"k":
+        tranz+=1
+        rota+1
+    # elif key == b"y":
+    #     rota+1
+    # elif key == b"h":
+    #     rota-1
+
+        
+    # draw_ball(pos)
     move_camera()
 
     glutPostRedisplay()
@@ -191,7 +230,7 @@ glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 glutCreateWindow("Football Field Simulator")
 
 init() 
-# init_light()
+init_light()
 
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
