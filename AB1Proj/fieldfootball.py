@@ -138,9 +138,9 @@ def draw_goal2(pos):
 def draw_ball(pos):
     glPushMatrix()
     glColor4fv(colors["white"])
-    glTranslatef(tranx, 1, tranz)
     glRotatef(rota, rota, 0, rota)
-    glutSolidSphere(UNIT_PIXEL * 1, SLICES*3, STACKS*3)
+    glTranslatef(tranx, 1, tranz)
+    glutSolidSphere(UNIT_PIXEL * 1, SLICES*2, STACKS*2)
     glPopMatrix()
     
 def draw_cube():  
@@ -201,16 +201,16 @@ def keyboard_handler(key, x, y):
 
     # move the ball
     elif key == b"l":
-        tranx+=1
+        tranx+=0.5
         rota+1
     elif key == b"i":
-        tranz-=1
+        tranz-=0.5
         rota-1
     elif key == b"j":
-        tranx-=1
+        tranx-=0.5
         rota-1
     elif key == b"k":
-        tranz+=1
+        tranz+=0.5
         rota+1
     # elif key == b"y":
     #     rota+1
