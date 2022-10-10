@@ -16,6 +16,8 @@ tranx = 0
 trany = 0
 tranz = 0
 rota = 1
+score1 = 0
+score2 = 0
 
 colors ={
     "green": [0.1, 1., 0.1, 0.],
@@ -150,6 +152,23 @@ def draw_cube():
     glutSolidCube(UNIT_PIXEL * 1)
     glPopMatrix()
     
+def goal():
+    global score1
+    global score2
+    global tranx
+    global tranz
+    if(tranx > 10 and (-1 < tranz < 2)):
+        score1+=1
+        print(f"jogador 1: {score1} x {score2} jogador 2 ")
+        tranx = 0
+        tranz = 0
+
+    elif(tranx < -10 and (-1 < tranz < 2)):
+        score2+=1
+        print(f"jogador 1: {score1} x {score2}: jogador 2 ")
+        tranx = 0
+        tranz = 0
+
 
 def display():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # Clear color and depth buffers
@@ -158,6 +177,7 @@ def display():
     glMatrixMode(GL_MODELVIEW)
 
     draw_cube()
+    goal()
     draw_ball([0, 0, 0])
     draw_goal1([105,4,35])
     draw_goal2([-105,4,35])
@@ -230,7 +250,7 @@ glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 glutCreateWindow("Football Field Simulator")
 
 init() 
-init_light()
+#init_light()
 
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
