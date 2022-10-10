@@ -138,8 +138,8 @@ def draw_goal2(pos):
 def draw_ball(pos):
     glPushMatrix()
     glColor4fv(colors["white"])
-    glTranslatef(tranx, 0, tranz)
-    glRotatef(rota, 0, rota, rota)
+    glTranslatef(tranx, 1, tranz)
+    glRotatef(rota, rota, 0, rota)
     glutSolidSphere(UNIT_PIXEL * 1, SLICES*3, STACKS*3)
     glPopMatrix()
     
