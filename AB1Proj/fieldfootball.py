@@ -157,15 +157,15 @@ def goal():
     global score2
     global tranx
     global tranz
-    if(tranx > 10 and (-1 < tranz < 2)):
+    if(tranx > 10 and (-1 < tranz < 3)):
         score1+=1
-        print(f"jogador 1: {score1} x {score2} jogador 2 ")
+        print(f"jogador 1 {score1} x {score2} jogador 2 ")
         tranx = 0
         tranz = 0
 
-    elif(tranx < -10 and (-1 < tranz < 2)):
+    elif(tranx < -10 and (-1 < tranz < 4)):
         score2+=1
-        print(f"jogador 1: {score1} x {score2}: jogador 2 ")
+        print(f"jogador 1 {score1} x {score2} jogador 2 ")
         tranx = 0
         tranz = 0
 
