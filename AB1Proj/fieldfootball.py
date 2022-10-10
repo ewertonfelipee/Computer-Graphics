@@ -250,7 +250,7 @@ glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 glutCreateWindow("Football Field Simulator")
 
 init() 
-#init_light()
+init_light()
 
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
