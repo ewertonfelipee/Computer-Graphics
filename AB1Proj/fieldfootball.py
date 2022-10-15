@@ -1,6 +1,10 @@
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
+import bresenham
+import bresenham2
+import bresenhamCircle
+
 
 WINDOW_WIDTH = 640
 WINDOW_HEIGHT = 640
@@ -28,27 +32,27 @@ UNIT_PIXEL = 0.2
 UNIT_DIST = 1
 unit_vel = 5
 
-def init_light():
-    light_ambient = [0.4, 0.4, 0.4, 1]
-    light_diffuse = [0.7, 0.7, 0.7, 1]
-    light_specular = [0.9, 0.9, 0.9, 1]
-    light_pos = [0, 200, -100, 1]
+# def init_light():
+#     light_ambient = [0.4, 0.4, 0.4, 1]
+#     light_diffuse = [0.7, 0.7, 0.7, 1]
+#     light_specular = [0.9, 0.9, 0.9, 1]
+#     light_pos = [0, 200, -100, 1]
    
-    glEnable(GL_DEPTH_TEST)
-    glEnable(GL_LIGHTING)
+#     glEnable(GL_DEPTH_TEST)
+#     glEnable(GL_LIGHTING)
 
-    glShadeModel(GL_SMOOTH)
-    glEnable(GL_COLOR_MATERIAL)
-    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
-    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE)
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [0.1, 0.1, 0.1, 1])
+#     glShadeModel(GL_SMOOTH)
+#     glEnable(GL_COLOR_MATERIAL)
+#     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE)
+#     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE)
+#     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [0.1, 0.1, 0.1, 1])
 
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse)
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular)
-    glLightfv(GL_LIGHT0, GL_POSITION, light_pos)
+#     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
+#     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse)
+#     glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular)
+#     glLightfv(GL_LIGHT0, GL_POSITION, light_pos)
 
-    glEnable(GL_LIGHT0)
+#     glEnable(GL_LIGHT0)
 
 
 def init():
@@ -169,6 +173,13 @@ def goal():
         tranx = 0
         tranz = 0
 
+def draw_line():
+    bresenham.plotline(-10,8,10,8)
+    bresenham.plotline(-10,-4.5,10,-4.5)
+    bresenham2.plotline2(0,-5,0,8)
+    bresenham2.plotline2(10,-5,10,8)
+    bresenham2.plotline2(-10,-5,-10,8)
+    bresenhamCircle.midPointCircle(2)
 
 def display():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # Clear color and depth buffers
@@ -179,8 +190,9 @@ def display():
     draw_cube()
     goal()
     draw_ball([0, 0, 0])
-    draw_goal1([105,4,35])
-    draw_goal2([-105,4,35])
+    draw_goal1([70,4,35])
+    draw_goal2([-70,4,35])
+    draw_line()
 
     glutSwapBuffers()
 
@@ -250,7 +262,7 @@ glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 glutCreateWindow("Football Field Simulator")
 
 init() 
-init_light()
+#init_light()
 
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
