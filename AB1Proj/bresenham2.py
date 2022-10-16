@@ -31,7 +31,7 @@ def plotline2(x1, z1, x2, z2):
 
 def draw_pixel2(z ,x):
     glColor3f(1.0, 1.0, 1.0)
-    glPointSize(1)
+    glPointSize(3)
     glBegin(GL_POINTS)
     glVertex3f(x, 1, z)
     glEnd()

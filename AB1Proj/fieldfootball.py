@@ -97,6 +97,7 @@ def move_camera():
 def draw_goal1Lines():
     glPushMatrix()
     glColor4fv(colors["white"])
+    glLineWidth(2)
     glBegin(GL_LINES)
     glVertex3f(10,0,2)
     glVertex3f(10,1.5,2)

@@ -29,7 +29,7 @@ def midPointCircle(r):
 
 def plot(x, z):
     glColor3f(1.0, 1.0, 1.0)
-    glPointSize(1)
+    glPointSize(3)
     glBegin(GL_POINTS)
     glVertex3f(x+0, 1, z+2)
     glEnd()
