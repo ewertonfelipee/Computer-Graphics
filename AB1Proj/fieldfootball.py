@@ -223,6 +223,9 @@ def keyboard_handler(key, x, y):
     #     up[0] = 1   
     elif key == b"z":
         eye[2] -= UNIT_DIST * UNIT_PIXEL * unit_vel
+
+    elif key == b"x":
+        eye[2] += UNIT_DIST * UNIT_PIXEL * unit_vel
         
     elif key == b"d":
         eye[0] += UNIT_DIST * UNIT_PIXEL * unit_vel
