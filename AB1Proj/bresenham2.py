@@ -22,17 +22,17 @@ def plotline2(x1, z1, x2, z2):
     while(z < z2):
         if(d <= 0):
             d += E
-            z +=1
+            z +=0.1
         else:
             d +=NE
-            z +=1
-            x +=1
+            z +=0.1
+            x +=0.1
         draw_pixel2(z, x)
 
 def draw_pixel2(z ,x):
     glColor3f(1.0, 1.0, 1.0)
-    glPointSize(3)
+    glPointSize(2)
     glBegin(GL_POINTS)
-    glVertex3f(x, 1, z)
+    glVertex3f(x, 0.2, z)
     glEnd()
     glFlush()

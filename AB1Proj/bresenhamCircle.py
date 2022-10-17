@@ -12,12 +12,12 @@ def midPointCircle(r):
     plot(x,z)
     while(z > x):
         if(d < 0):
-            x+=1
-            d = 2*x+1
+            x+=0.01
+            d += 2*x + 0.01
         else:
-            z-=1
-            x+=1
-            d+=2*(x - z) + 1
+            z-=0.01
+            x+=0.01
+            d+=2*(x - z) + 0.01
         plot(x,z)
         plot(x,-z)
         plot(-x,z)
@@ -29,8 +29,8 @@ def midPointCircle(r):
 
 def plot(x, z):
     glColor3f(1.0, 1.0, 1.0)
-    glPointSize(3)
+    glPointSize(1)
     glBegin(GL_POINTS)
-    glVertex3f(x+0, 1, z+2)
+    glVertex3f(x+0, 1, z+1.5)
     glEnd()
     glFlush()

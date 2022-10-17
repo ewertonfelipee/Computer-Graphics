@@ -175,12 +175,12 @@ def goal():
         tranz = 0
 
 def draw_line():
-    bresenham.plotline(-10,8,10,8)
-    bresenham.plotline(-10,-4.5,10,-4.5)
-    bresenham2.plotline2(0,-5,0,8)
-    bresenham2.plotline2(10,-5,10,8)
-    bresenham2.plotline2(-10,-5,-10,8)
-    bresenhamCircle.midPointCircle(2)
+    bresenham.plotline(-10,6,10,6)
+    bresenham.plotline(-10,-6,10,-6)
+    bresenham2.plotline2(0,-6,0,6)
+    bresenham2.plotline2(10,-6,10,6)
+    bresenham2.plotline2(-10,-6,-10,6)
+    bresenhamCircle.midPointCircle(3)
 
 def display():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # Clear color and depth buffers
@@ -188,12 +188,12 @@ def display():
     
     glMatrixMode(GL_MODELVIEW)
 
+    draw_line()
     draw_cube()
     goal()
     draw_ball([0, 0, 0])
     draw_goal1([70,4,35])
     draw_goal2([-70,4,35])
-    draw_line()
 
     glutSwapBuffers()
 
