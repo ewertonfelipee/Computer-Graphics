@@ -31,6 +31,6 @@ def plot(x, z):
     glColor3f(1.0, 1.0, 1.0)
     glPointSize(1)
     glBegin(GL_POINTS)
-    glVertex3f(x+0, 1, z+1.5)
+    glVertex3f(x+0, 1, z-0.0001)
     glEnd()
     glFlush()
