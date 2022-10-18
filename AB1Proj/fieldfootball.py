@@ -175,11 +175,11 @@ def goal():
         tranz = 0
 
 def draw_line():
-    bresenham.plotline(-10,6,10,6)
-    bresenham.plotline(-10,-6,10,-6)
-    bresenham2.plotline2(0,-6,0,6)
-    bresenham2.plotline2(10,-6,10,6)
-    bresenham2.plotline2(-10,-6,-10,6)
+    bresenham.plotline(-10,6,9.9,6)
+    bresenham.plotline(-10,-6,9.9,-6)
+    bresenham2.plotline2(0,-5.9,0,5.9)
+    bresenham2.plotline2(10,-5.9,10,5.9)
+    bresenham2.plotline2(-10,-5.9,-10,5.9)
     bresenhamCircle.midPointCircle(3)
 
 def display():
