@@ -24,6 +24,6 @@ pip install PyOpenGL-3.1.6-cp310-cp310-win_amd64.whl
 
 Para executar usamos o comando: ` python .\fieldfootball.py `
 
-Controles da Câmera: `wasdzu`
+Controles da Câmera: `wasdzx`
 
 Controles da Bola: `ijkl`
